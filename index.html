@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="mesto project" />
+    <meta name="author" content="Abuzar Mamedov" />
+    <title>mesto</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <div class="wrapper">
+      <header class="header">
+        <img src="./images/logo.svg" alt="Место" class="header__logo"/>
+      </header>
+      <main class="main">
+        <section class="profile">
+          <div class="profile__main">
+            <img src="./images/image.svg" alt="Аватар" class="profile__avatar"/>
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button" type="button"></button>
+            <p class="profile__description">Исследователь океана</p>
+          </div>
+          <button class="profile__add-button" type="button"></button>
+        </section>
+        <section class="elements">
+          <article class = "card">
+            <img src="./images/kirill-pershin-1088404-unsplash.svg" alt="Карачаевск" class="card__image">
+            <div class="card__info">
+                <h2 class="card__title">Карачаевск</h2>
+                <button type="button" class="card__button"></button>
+            </div>
+          </article>
+          <article class = "card">
+            <img src="./images/kirill-pershin-1404681-unsplash1.svg" alt="Эльбрус" class="card__image">
+            <div class="card__info">
+                <h2 class="card__title">Гора Эльбрус</h2>
+                <button type="button" class="card__button"></button>
+            </div>
+          </article>
+          <article class = "card">
+            <img src="./images/kirill-pershin-1556355-unsplash2.svg" alt="Домбай" class="card__image">
+            <div class="card__info">
+                <h2 class="card__title">Домбай</h2>
+                <button type="button" class="card__button"></button>
+            </div>
+          </article>
+          <article class = "card">
+            <img src="./images/Ufa.jpeg" alt="Уфа" class="card__image">
+            <div class="card__info">
+                <h2 class="card__title">Уфа</h2>
+                <button type="button" class="card__button"></button>
+            </div>
+          </article>
+          <article class = "card">
+            <img src="./images/ny_night_01.jpeg" alt="лондон" class="card__image">
+            <div class="card__info">
+                <h2 class="card__title">Нью-Йоорк</h2>
+                <button type="button" class="card__button"></button>
+            </div>
+          </article>
+          <article class = "card">
+            <img src="./images/venecia.jpeg" alt="фото" class="card__image">
+            <div class="card__info">
+                <h2 class="card__title">Венеция</h2>
+                <button type="button" class="card__button"></button>
+            </div>
+          </article>
+
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+      </footer>
+    </div>
+    <section class="popup profile-popup">
+      <form class="popup__container" id="popup__edit-form" name="edit-form">
+        <button class="popup__exit" type="button"></button>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <fieldset class="popup__inputs">
+          <input type="text" class="popup__input" name="title"  id="title" placeholder="Имя" required/>
+          <input type="text" class="popup__input" name="description"  id="description" placeholder="Статус" required/>
+        </fieldset>
+        <button type="submit" class="popup__submit" id="popup__edit-submit">Сохранить</button>
+      </form>
+    </section>
+    <script src="./scripts/index.js" defer></script>
+  </body>
+</html>
