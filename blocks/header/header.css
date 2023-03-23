@@ -3,14 +3,13 @@
     padding: 0;
     box-sizing: border-box;
     width: 100%;
-    padding-bottom: 41px;
-    padding-top: 45px;
+    margin-top: 45px;
     border-bottom: 1px solid #54545470;
+    height: 74px;
 }
 
 @media only screen and (max-width: 767px) {
     .header {
-        padding-bottom: 32px;
-        padding-top: 28px;
+      margin-top: 25px;
     }
-}
+  }

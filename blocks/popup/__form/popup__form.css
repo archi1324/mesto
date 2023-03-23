@@ -1,0 +1,15 @@
+.popup__form{
+    max-width: 430px;
+    min-height: 330px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    position: relative;
+}
+
+@media (max-width:600px){
+    .popup__form{
+      max-width: 282px;
+      min-height: 322px;
+      padding: 25px 22px;
+    }
+  }

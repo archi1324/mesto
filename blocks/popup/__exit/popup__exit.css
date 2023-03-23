@@ -1,28 +1,20 @@
-.popup__exit {
+.popup__exit{
     border: none;
-    margin: 0;
     padding: 0;
     position: absolute;
-    left: 102%;
-    top: -12%;
-    background: url(../../../images/Close\ Icon.svg);
+    left: 436px;
+    top: -35px;
     width: 32px;
     height: 32px;
-    background-size: contain;
-    transition: opacity .2s ease-in-out;
+    background: url(../../../images/Close\ Icon.svg);
+    position: absolute;
 }
 
-.popup__exit:hover {
-    opacity: .6;
-    cursor: pointer;
-}
-
-@media only screen and (max-width: 767px) {
-    .popup__exit {
-        width: 20px;
-        height: 20px;
-        left: 95%;
-        transform: translateX(-50%);
-        top: -10%;
+@media (max-width:600px){
+    .popup__exit{
+        position: absolute;
+        left: 331px;
+        top: -28px;
     }
-}
+  }
+  

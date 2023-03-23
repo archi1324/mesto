@@ -1,9 +1,9 @@
-.card__info {
+.card__info{
     margin: 0;
     padding: 25px 15px 25px 21px;
-    box-sizing: border-box;
+    width: 250px;
+    height: 23px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    align-items: center;
 }
