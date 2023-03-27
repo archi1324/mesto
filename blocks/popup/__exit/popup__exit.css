@@ -7,12 +7,10 @@
     width: 32px;
     height: 32px;
     background: url(../../../images/Close\ Icon.svg);
-    position: absolute;
 }
 
 @media (max-width:600px){
     .popup__exit{
-        position: absolute;
         left: 262px;
         top: -42px;
         background: url(../../../images/exit.svg);
