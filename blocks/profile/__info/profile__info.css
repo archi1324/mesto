@@ -5,11 +5,11 @@
     grid-template-areas:
         'avatar name edit'
         'avatar description .';
-    row-gap: 16px;
+    row-gap: 0px
 }
 
 @media only screen and (max-width: 767px) {
-    .profile__main {
+    .profile__info {
       row-gap: 0;
       grid-template-areas:
         'avatar avatar'

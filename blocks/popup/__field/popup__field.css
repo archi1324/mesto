@@ -1,5 +1,5 @@
 .popup__field{
-    margin: 54px 0px 0px 36px;
+    margin: 48px 0px 0px 34px;
     border: none;
     border-bottom: 1px solid #000000;
     font-family: 'Inter';
@@ -16,5 +16,5 @@
     .popup__field{
 width: 238px;
 height: 27px;
-margin: 0 0 0 24px;
+margin: 45px 0 0 20px;
 }}

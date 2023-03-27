@@ -1,5 +1,4 @@
 .profile__name{
-margin: 0;
 padding: 0;
 grid-area: name;
 font-family: 'Inter';
@@ -8,13 +7,13 @@ font-weight: 500;
 font-size: 42px;
 line-height: 48px;
 color: #FFFFFF;
-margin-top: 22px;
+margin: 22px 0 0px 30px;
 }
 
 @media only screen and (max-width: 767px) {
     .profile__name {
       align-self: unset;
-      margin: 0 0 14px 0;
+      margin: 6px 0px 0px 27px;
       font-size: 27px;
       line-height: 33px;
     }
