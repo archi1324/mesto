@@ -1,13 +1,12 @@
-.popup__submit{
-    background: #000;
-    border-radius: 2px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #fff;
-    width: 365px;
-    height: 50px;
-    margin: 52px 0px 0px 34px;
+.popup__submit {
+  background: #000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #fff;
+  width: 365px;
+  height: 50px;
+  margin: 49px 18px 37px 34px;
 }
   
   @media (max-width:600px){

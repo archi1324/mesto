@@ -1,13 +1,16 @@
 .profile__name{
 padding: 0;
 grid-area: name;
-font-family: 'Inter';
+font-family: 'Inter', 'Arial', sans-serif;
 font-style: normal;
 font-weight: 500;
 font-size: 42px;
 line-height: 48px;
 color: #FFFFFF;
 margin: 22px 0 0px 30px;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
 }
 
 @media only screen and (max-width: 767px) {

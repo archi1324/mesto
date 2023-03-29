@@ -1,7 +1,7 @@
 .popup__subtitle{
     width: 358px;
     height: 27px;
-    font-family: 'Inter';
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -13,8 +13,13 @@
 }
 
 @media (max-width:600px){
-    .popup__subtitle{
-width: 238px;
-height: 27px;
-margin: 27px 0 0 20px;
-}}
+.popup__subtitle{
+    margin: 27px 0 0 20px;
+}
+}
+
+
+.popup__subtitle:focus {
+    opacity: 0.2;
+    border: 1px solid #000000;
+      }

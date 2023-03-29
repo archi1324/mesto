@@ -18,7 +18,8 @@
   
   @media only screen and (max-width: 767px) {
     .elements {
-      padding-top: 34px;
-      margin: 0;
+      padding-top: 0px;
+      margin-top: 36.25px;
+      gap: 16px 17px;
     }
   }
