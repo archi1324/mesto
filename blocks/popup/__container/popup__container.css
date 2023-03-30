@@ -1,0 +1,16 @@
+.popup__container{
+    max-width: 430px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    position: relative;
+    justify-content: center;
+}
+
+@media (max-width:600px){
+.popup__container{
+    width: 282px;
+    padding: 0;
+    margin: 48px 0 0 0;
+    min-height: 320px;
+    }
+  }

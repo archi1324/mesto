@@ -6,13 +6,13 @@
 }
 
  @media only screen and (max-width: 900px) {
-    .footer {
+.footer {
       width: calc(100% - 38px);
     }
   }
   
   @media only screen and (max-width: 767px) {
-    .footer {
+.footer {
       padding-top: 48px;
       padding-bottom: 36px;
     }

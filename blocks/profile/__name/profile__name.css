@@ -8,6 +8,7 @@ font-size: 42px;
 line-height: 48px;
 color: #FFFFFF;
 margin: 22px 0 0px 30px;
+justify-content: center;
 text-overflow: ellipsis;
 white-space: nowrap;
 overflow: hidden;
