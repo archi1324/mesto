@@ -6,13 +6,14 @@
     top: -40px;
     width: 32px;
     height: 32px;
+    cursor: pointer;
     background: url(../../../images/Close\ Icon.svg);
 }
 
 @media (max-width:600px){
     .popup__exit{
         left: 262px;
-        top: -42px;
+        top: -37px;
         background: url(../../../images/exit.svg);
         width: 20px;
         height: 20px;
