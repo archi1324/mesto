@@ -1,4 +1,4 @@
-.popup__exit{
+.popup__exit {
     border: none;
     padding: 0;
     position: absolute;
@@ -10,16 +10,16 @@
     background: url(../../../images/Close\ Icon.svg);
 }
 
-@media (max-width:600px){
-    .popup__exit{
+@media (max-width:600px) {
+    .popup__exit {
         left: 262px;
         top: -37px;
         background: url(../../../images/exit.svg);
         width: 20px;
         height: 20px;
     }
-  }
-  
-  .popup__exit:hover{
+}
+
+.popup__exit:hover {
     opacity: 60%;
-    }
+}

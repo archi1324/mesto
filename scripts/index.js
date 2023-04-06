@@ -7,17 +7,17 @@ let popupField = popup.querySelector('.popup__field');
 let popupSubtitle = popup.querySelector('.popup__subtitle');
 let submit = popup.querySelector('.popup__submit');
 
-let popupOpen = function(){
+let openPopup = function () {
   popup.classList.add('popup_opened');
   popupField.value = profileName.textContent;
   popupSubtitle.value = profileDescription.textContent;
 }
 
-let popupExit = function(){
+let popupExit = function () {
   popup.classList.remove('popup_opened');
 }
 
-let popupSubmit = function(event){
+let popupSubmit = function (event) {
   event.preventDefault();
   profileName.textContent = popupField.value;
   profileDescription.textContent = popupSubtitle.value;
@@ -25,6 +25,6 @@ let popupSubmit = function(event){
 }
 
 
-popupOpened.addEventListener('click', popupOpen);
-submit.addEventListener('click',popupSubmit);
-popupClose.addEventListener('click',popupExit);
+popupOpened.addEventListener('click', openPopup);
+submit.addEventListener('submit', popupSubmit);
+popupClose.addEventListener('click', popupExit);
