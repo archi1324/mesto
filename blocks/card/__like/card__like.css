@@ -1,14 +1,17 @@
 .card__like{
     width: 25px;
     height: 19px;
-    background: url(../../../images/Group.svg) no-repeat;
+    background-size: 22px 19px;
+    background: url(../../../images/Group.svg)no-repeat;
     margin: 0px 5px 0px 0px;
     padding: 0;
     border: none;
     justify-content: center;
+    background-position: center;
     cursor: pointer;
 }
-÷
+
+
 .card__like:hover{
     opacity: 0.5;
   }
