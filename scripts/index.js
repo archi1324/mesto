@@ -8,7 +8,7 @@ let popupField = popup.querySelector('.popup__field');
 let popupSubtitle = popup.querySelector('.popup__subtitle');
 let submit = popup.querySelector('.form');
 let likeButton = document.querySelector('.card__like')
-let Addpopup = document.querySelector('.popup__add')
+let Addpopup = document.querySelector('.popup_add')
 
 let openPopup = function (popup) {
   popup.classList.add('popup_opened');
@@ -39,10 +39,10 @@ submit.addEventListener('submit',popupSubmit);
 popupClose.addEventListener('click', function(){popupExit(popup)});
 
 const exitAdd = document.querySelector('.popup__exit_add')
-exitAdd.addEventListener('click', function(){                       //закрытие ФОРМЫ 2 ПОПАП по клику
+exitAdd.addEventListener('click', function(){                       
   popupExit(Addpopup);        
 });
-const exitZoom = document.querySelector('.popup__exit_zoom')
+const exitZoom = document.querySelector('.popup__exit-zoom')
 exitZoom.addEventListener('click',function(){
   popupExit(zoomPopup); 
 })
@@ -109,11 +109,11 @@ function Delete(evt)
   const purge = evt.target.closest('.card').remove();  
 }
 
-const TitleInput = document.querySelector('.popup__field_add'); 
-const linkInput = document.querySelector('.popup__subtitle_add'); 
-const formElementCard = document.querySelector('.form__add'); 
+const TitleInput = document.querySelector('.popup__field-add'); 
+const linkInput = document.querySelector('.popup__subtitle-add'); 
+const formElementCard = document.querySelector('.form_add'); 
 
-function handleFormSubmitAdd (evt) {
+function SubmitAdd (evt) {
     evt.preventDefault();
     const NameValue = TitleInput.value;
     const LinkValue = linkInput.value;
@@ -123,15 +123,15 @@ function handleFormSubmitAdd (evt) {
     popupExit(Addpopup);
 };
 
-formElementCard.addEventListener('submit', handleFormSubmitAdd);
+formElementCard.addEventListener('submit', SubmitAdd);
 
 let openPopupAdd = function () {
   zoomPopup.classList.add('popup_opened');
 }
 
-const zoomPopup = document.querySelector('.popup__zoom');
-const photoPopup = document.querySelector('.popup__zoom_photo');
-const AltPopup = document.querySelector('.popup__zoom_title');
+const zoomPopup = document.querySelector('.popup_zoom');
+const photoPopup = document.querySelector('.popup_zoom-photo');
+const AltPopup = document.querySelector('.popup_zoom-title');
 function zoomPhoto(card) {
   openPopupAdd();
    AltPopup.textContent = card.target.alt;
