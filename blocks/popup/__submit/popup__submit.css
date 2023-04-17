@@ -10,6 +10,7 @@
   height: 50px;
   margin: 49px 18px 37px 37px;
   border-radius: 2px;
+  transition: 0.2s ease-out;
 }
   
 @media (max-width:600px){
