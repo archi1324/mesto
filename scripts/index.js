@@ -112,7 +112,7 @@ function Delete(evt)
 
 const TitleInput = document.querySelector('.popup__field-add'); 
 const linkInput = document.querySelector('.popup__subtitle-add'); 
-const formElementCard = document.querySelector('.popup__form_add'); 
+const formElementCard = document.querySelector('.popup__form-add'); 
 
 function SubmitAdd (evt) {
     evt.preventDefault();
