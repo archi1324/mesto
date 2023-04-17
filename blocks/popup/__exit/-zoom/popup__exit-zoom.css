@@ -1,4 +1,4 @@
-.popup__exit_zoom {
+.popup__exit-zoom {
     position: absolute;
     top: 40px;
     right: 240px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 768px) {
-    .popup__exit_zoom {
+    .popup__exit-zoom {
         top: 100px;
         right: 0;
     }
