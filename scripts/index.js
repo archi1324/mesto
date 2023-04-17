@@ -93,6 +93,7 @@ function creatCard(card){
   cardTrash.addEventListener ('click', Delete);
   cardImage.addEventListener ('click', zoomPhoto);
   return cardNew;
+  console.log( cardImage.src);
 };
 
 initialElements.forEach ((card) => {
@@ -111,7 +112,7 @@ function Delete(evt)
 
 const TitleInput = document.querySelector('.popup__field-add'); 
 const linkInput = document.querySelector('.popup__subtitle-add'); 
-const formElementCard = document.querySelector('.form_add'); 
+const formElementCard = document.querySelector('.popup__form_add'); 
 
 function SubmitAdd (evt) {
     evt.preventDefault();
@@ -130,10 +131,11 @@ let openPopupAdd = function () {
 }
 
 const zoomPopup = document.querySelector('.popup_zoom');
-const photoPopup = document.querySelector('.popup_zoom-photo');
-const AltPopup = document.querySelector('.popup_zoom-title');
+const photoPopup = document.querySelector('.popup__photo-zoom');
+const AltPopup = document.querySelector('.popup__title-zoom');
 function zoomPhoto(card) {
   openPopupAdd();
    AltPopup.textContent = card.target.alt;
    photoPopup.src =card.target.src;
+   console.log(AltPopup);
 };

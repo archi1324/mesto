@@ -32,6 +32,6 @@
 @import url(../blocks/card/__trash/card__trash.css);
 @import url(../blocks/popup/__exit/-zoom/popup__exit-zoom.css);
 @import url(../blocks/popup/_zoom/popup_zoom.css);
-@import url(../blocks/popup/_zoom/-container/popup_zoom-container.css);
-@import url(../blocks/popup/_zoom/-title/popup_zoom-title.css);
-@import url(../blocks/popup/_zoom/-photo/popup_zoom-photo.css);
+@import url(../blocks/popup/__container/-zoom/popup__container-zoom.css);
+@import url(../blocks/popup/__title/-zoom/popup__title-zoom.css);
+@import url(../blocks/popup/__photo/popup__photo-zoom.css);
