@@ -138,3 +138,17 @@ function zoomPhoto(card) {
   photoPopup.alt = card.target.alt;
   photoPopup.src = card.target.src;
 };
+
+
+const disabledButton = profilePopup.querySelector('.popup__submit');
+if (titleInput.value === '' || linkInput.value === '') {
+  disabledButton.classList.add('popup__button_disabled');
+};
+
+popup.forEach(function(close) {
+  close.addEventListener('mousedown', function(event) {
+    if (event.target.classList.contains('popup_opened')) {
+      Exitpopup(close);
+    }
+  });
+});
