@@ -5,4 +5,4 @@
 
 ссылка на сайт archi1324.github.io/место/
 
-
+Александр, проект же выложен на githubpages: archi1324.github.io/место/
