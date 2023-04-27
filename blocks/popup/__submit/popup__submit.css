@@ -8,7 +8,7 @@
   color: #fff;
   width: 358px;
   height: 50px;
-  margin: 49px 18px 37px 37px;
+  margin: 15px 18px 37px 37px;
   border-radius: 2px;
   transition: 0.2s ease-out;
 }
@@ -20,7 +20,7 @@
       min-height: 46px;
       width: 238px;
       height: 46px;
-      margin: 48px 0px 25px 22px;
+      margin: 15px 0px 25px 36px;
     }
   }
   

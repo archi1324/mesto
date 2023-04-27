@@ -9,23 +9,23 @@ const popupField = document.querySelector('.popup__field');
 const popupSubtitle = document.querySelector('.popup__subtitle');
 const submit = document.querySelector('.form');
 const likeButton = document.querySelector('.card__like')
-const addFormPopup = document.querySelector('.popup_add')
+const addPopup = document.querySelector('.popup_add')
+const popupFormAadd =document.querySelector('.popup__form-add')
 
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', popupEscape);
 }
 
 const exitPopup = function (popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', popupEscape);
+  document.removeEventListener('keydown', popupEscape);
 }
-
-
 
 const exitAddButton = document.querySelector('.popup__exit_add'); 
 
 exitAddButton.addEventListener('click', function () {
-  exitPopup(addFormPopup);
+  exitPopup(addPopup);
 });
 const exitZoomButton = document.querySelector('.popup__exit-zoom');
 
@@ -33,10 +33,13 @@ exitZoomButton.addEventListener('click', function () {
   exitPopup(zoomPopup);
 }) 
 
-
-addPopupOpenButton.addEventListener('click', function () { openPopup(addFormPopup) });
+addPopupOpenButton.addEventListener('click', function () {
+   const inputAdd = Array.from(popupFormAadd.querySelectorAll('.popup__input'));
+   const buttonAdd = popupFormAadd.querySelector('.popup__submit');
+  openPopup(addPopup); 
+  disableButton(inputAdd,buttonAdd);
+  });
 closePopup.addEventListener('click', function () { exitPopup(profilePopup) });
-
 
 profilePopupOpenButton.addEventListener('click', function () {
   openPopup(profilePopup);
@@ -52,8 +55,6 @@ const submitPopup = function (event) {
 }
 
 submit.addEventListener('submit', submitPopup);
-
-
 
 const initialElements = [
   {
@@ -81,7 +82,6 @@ const initialElements = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
 
 const elementsItem = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.card__template').content.querySelector('.card');
@@ -124,12 +124,11 @@ function submitAdd(evt) {
   const linkValue = linkInput.value;
   const card = { link: linkValue, name: nameValue }
   elementsItem.prepend(creatCard(card));
-  exitPopup(addFormPopup);
+  exitPopup(addPopup);
   evt.target.reset();
 };
 
 formElementCard.addEventListener('submit', submitAdd);
-
 
 const zoomPopup = document.querySelector('.popup_zoom');
 const photoPopup = document.querySelector('.popup__photo-zoom');
@@ -147,12 +146,12 @@ function popupEscape(event) {
   }
 }
 
-
-const popupAll = Array.from(document.querySelectorAll(".popup"));
-popupAll.forEach(function(popup) {
+const popupOverlay = Array.from(document.querySelectorAll(".popup"));
+popupOverlay.forEach(function(popup) {
  popup.addEventListener('click', function(event) {
    if (event.target === event.currentTarget) {
      exitPopup(event.currentTarget);
    }
  })
 })
+
