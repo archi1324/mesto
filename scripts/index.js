@@ -1,61 +1,3 @@
-const profilePopupOpenButton = document.querySelector('.profile__edit-button');
-const addPopupOpenButton = document.querySelector('.profile__add-button');
-const profilePopup = document.querySelector('.popup_edit');
-const popup = document.querySelector('.popup');
-const closePopup = document.querySelector('.popup__exit');
-const profileName = document.querySelector('.profile__name');
-const profileDescription = document.querySelector('.profile__description');
-const popupField = document.querySelector('.popup__field');
-const popupSubtitle = document.querySelector('.popup__subtitle');
-const submit = document.querySelector('.form');
-const likeButton = document.querySelector('.card__like')
-const addPopup = document.querySelector('.popup_add')
-const popupFormAadd =document.querySelector('.popup__form-add')
-
-const openPopup = function (popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', popupEscape);
-}
-
-const exitPopup = function (popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', popupEscape);
-}
-
-const exitAddButton = document.querySelector('.popup__exit_add'); 
-
-exitAddButton.addEventListener('click', function () {
-  exitPopup(addPopup);
-});
-const exitZoomButton = document.querySelector('.popup__exit-zoom');
-
-exitZoomButton.addEventListener('click', function () {
-  exitPopup(zoomPopup);
-}) 
-
-addPopupOpenButton.addEventListener('click', function () {
-   const inputAdd = Array.from(popupFormAadd.querySelectorAll('.popup__input'));
-   const buttonAdd = popupFormAadd.querySelector('.popup__submit');
-  openPopup(addPopup); 
-  disableButton(inputAdd,buttonAdd);
-  });
-closePopup.addEventListener('click', function () { exitPopup(profilePopup) });
-
-profilePopupOpenButton.addEventListener('click', function () {
-  openPopup(profilePopup);
-  popupField.value = profileName.textContent;
-  popupSubtitle.value = profileDescription.textContent;
-});
-
-const submitPopup = function (event) {
-  event.preventDefault();
-  profileName.textContent = popupField.value;
-  profileDescription.textContent = popupSubtitle.value;
-  exitPopup(profilePopup);
-}
-
-submit.addEventListener('submit', submitPopup);
-
 const initialElements = [
   {
     name: 'Архыз',
@@ -83,8 +25,55 @@ const initialElements = [
   }
 ];
 
+const profilePopupOpenButton = document.querySelector('.profile__edit-button');
+const addPopupOpenButton = document.querySelector('.profile__add-button');
+const profilePopup = document.querySelector('.popup_edit');
+const popup = document.querySelector('.popup');
+const closePopup = document.querySelector('.popup__exit');
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
+const popupField = document.querySelector('.popup__field');
+const popupSubtitle = document.querySelector('.popup__subtitle');
+const submit = document.querySelector('.form');
+const likeButton = document.querySelector('.card__like')
+const addPopup = document.querySelector('.popup_add')
+const popupFormAadd =document.querySelector('.popup__form-add')
+const exitAddButton = document.querySelector('.popup__exit_add');
 const elementsItem = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.card__template').content.querySelector('.card');
+const titleInput = document.querySelector('.popup__field-add');
+const linkInput = document.querySelector('.popup__subtitle-add');
+const formElementCard = document.querySelector('.popup__form-add');
+const zoomPopup = document.querySelector('.popup_zoom');
+const photoPopup = document.querySelector('.popup__photo-zoom');
+const altPopup = document.querySelector('.popup__title-zoom');
+const exitZoomButton = document.querySelector('.popup__exit-zoom');
+
+const openPopup = function (popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', popupEscape);
+}
+
+const exitPopup = function (popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', popupEscape);
+}
+
+const submitPopup = function (event) {
+  event.preventDefault();
+  profileName.textContent = popupField.value;
+  profileDescription.textContent = popupSubtitle.value;
+  exitPopup(profilePopup);
+}
+
+const popupOverlay = Array.from(document.querySelectorAll(".popup"));
+popupOverlay.forEach(function(popup) {
+ popup.addEventListener('click', function(event) {
+   if (event.target === event.currentTarget) {
+     exitPopup(event.currentTarget);
+   }
+ })
+})
 
 function creatCard(card) {
   const cardNew = cardTemplate.cloneNode(true);
@@ -114,10 +103,6 @@ function deleteCard(evt) {
   const purge = evt.target.closest('.card').remove();
 }
 
-const titleInput = document.querySelector('.popup__field-add');
-const linkInput = document.querySelector('.popup__subtitle-add');
-const formElementCard = document.querySelector('.popup__form-add');
-
 function submitAdd(evt) {
   evt.preventDefault();
   const nameValue = titleInput.value;
@@ -127,12 +112,6 @@ function submitAdd(evt) {
   exitPopup(addPopup);
   evt.target.reset();
 };
-
-formElementCard.addEventListener('submit', submitAdd);
-
-const zoomPopup = document.querySelector('.popup_zoom');
-const photoPopup = document.querySelector('.popup__photo-zoom');
-const altPopup = document.querySelector('.popup__title-zoom');
 function zoomPhoto(card) {
   openPopup(zoomPopup);
   altPopup.textContent = card.target.alt;
@@ -146,12 +125,28 @@ function popupEscape(event) {
   }
 }
 
-const popupOverlay = Array.from(document.querySelectorAll(".popup"));
-popupOverlay.forEach(function(popup) {
- popup.addEventListener('click', function(event) {
-   if (event.target === event.currentTarget) {
-     exitPopup(event.currentTarget);
-   }
- })
-})
+exitAddButton.addEventListener('click', function () {
+  exitPopup(addPopup);
+});
+
+exitZoomButton.addEventListener('click', function () {
+  exitPopup(zoomPopup);
+}) 
+
+addPopupOpenButton.addEventListener('click', function () {
+   const inputAdd = Array.from(popupFormAadd.querySelectorAll('.popup__input'));
+   const buttonAdd = popupFormAadd.querySelector('.popup__submit');
+   openPopup(addPopup); 
+   disableButton(inputAdd,buttonAdd);
+  });
+
+profilePopupOpenButton.addEventListener('click', function () {
+  openPopup(profilePopup);
+  popupField.value = profileName.textContent;
+  popupSubtitle.value = profileDescription.textContent;
+});
+
+formElementCard.addEventListener('submit', submitAdd);
+submit.addEventListener('submit', submitPopup);
+closePopup.addEventListener('click', function () { exitPopup(profilePopup) });
 

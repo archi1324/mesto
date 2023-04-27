@@ -31,7 +31,7 @@ const validInput = (form,input,config) => {
 
 const invalidInput = (inputList) => {
     return inputList.some((input) =>{
-            return !input.validity.valid;
+      return !input.validity.valid;
         });
 }; 
 
@@ -46,7 +46,7 @@ const disableButton = (inputList,buttonElement) =>{
 };
 
 const setEventListener = (form, config) => {
-    const inputList = Array.from(form.querySelectorAll(config.inputSelector));
+     const inputList = Array.from(form.querySelectorAll(config.inputSelector));
      const buttonElement = form.querySelector(config.submitButtonSelector);
      disableButton(inputList,buttonElement,config);
      inputList.forEach((input) => {
@@ -69,6 +69,3 @@ const enableValidation = (config) => {
  };
 
  enableValidation(validationConfig);
-
-
-
