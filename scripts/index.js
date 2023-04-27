@@ -29,12 +29,12 @@ const profilePopupOpenButton = document.querySelector('.profile__edit-button');
 const addPopupOpenButton = document.querySelector('.profile__add-button');
 const profilePopup = document.querySelector('.popup_edit');
 const popup = document.querySelector('.popup');
-const closePopup = document.querySelector('.popup__exit');
+const buttonCloseFormEditProfile = document.querySelector('.popup__exit');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const popupField = document.querySelector('.popup__field');
 const popupSubtitle = document.querySelector('.popup__subtitle');
-const submit = document.querySelector('.form');
+const formEditProfile = document.querySelector('.form');
 const likeButton = document.querySelector('.card__like')
 const addPopup = document.querySelector('.popup_add')
 const popupFormAadd =document.querySelector('.popup__form-add')
@@ -48,18 +48,20 @@ const zoomPopup = document.querySelector('.popup_zoom');
 const photoPopup = document.querySelector('.popup__photo-zoom');
 const altPopup = document.querySelector('.popup__title-zoom');
 const exitZoomButton = document.querySelector('.popup__exit-zoom');
+const inputAdd = Array.from(popupFormAadd.querySelectorAll('.popup__input'));
+const buttonAdd = popupFormAadd.querySelector('.popup__submit');
 
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', popupEscape);
+  document.addEventListener('keydown', closePopupByEsc);
 }
 
 const exitPopup = function (popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', popupEscape);
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
-const submitPopup = function (event) {
+const submitEditProfileForm = function (event) {
   event.preventDefault();
   profileName.textContent = popupField.value;
   profileDescription.textContent = popupSubtitle.value;
@@ -103,7 +105,7 @@ function deleteCard(evt) {
   const purge = evt.target.closest('.card').remove();
 }
 
-function submitAdd(evt) {
+function submitAddCardForm(evt) {
   evt.preventDefault();
   const nameValue = titleInput.value;
   const linkValue = linkInput.value;
@@ -119,7 +121,7 @@ function zoomPhoto(card) {
   photoPopup.src = card.target.src;
 };
 
-function popupEscape(event) {
+function closePopupByEsc(event) {
   if (event.key === "Escape") {
     exitPopup(document.querySelector(".popup_opened"));
   }
@@ -134,8 +136,6 @@ exitZoomButton.addEventListener('click', function () {
 }) 
 
 addPopupOpenButton.addEventListener('click', function () {
-   const inputAdd = Array.from(popupFormAadd.querySelectorAll('.popup__input'));
-   const buttonAdd = popupFormAadd.querySelector('.popup__submit');
    openPopup(addPopup); 
    disableButton(inputAdd,buttonAdd);
   });
@@ -146,7 +146,7 @@ profilePopupOpenButton.addEventListener('click', function () {
   popupSubtitle.value = profileDescription.textContent;
 });
 
-formElementCard.addEventListener('submit', submitAdd);
-submit.addEventListener('submit', submitPopup);
-closePopup.addEventListener('click', function () { exitPopup(profilePopup) });
+formElementCard.addEventListener('submit', submitAddCardForm);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
+buttonCloseFormEditProfile.addEventListener('click', function () { exitPopup(profilePopup) });
 
