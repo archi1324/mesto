@@ -1,5 +1,3 @@
-import {validationConfig} from "./initialElements.js";
-
 class FormValidator {
     constructor(validationConfig, form) {
         this.config = validationConfig;
@@ -8,7 +6,6 @@ class FormValidator {
 
     _openError = (input, errorMessage) => {
         const errorContainer = this._form.querySelector(`#${input.id}-error`);
-        console.log(`#${input.id}-error`);
         input.classList.add(this.config.inputErrorClass);
         errorContainer.classList.add(this.config.errorClass);
         errorContainer.textContent = errorMessage;
@@ -23,7 +20,6 @@ class FormValidator {
 
     _checkValidInput(input) {
         if (!input.validity.valid) {
-            console.log(input);
             this._openError(input, input.validationMessage);
         } else {
             this._hideError(input);
@@ -57,7 +53,6 @@ class FormValidator {
         this._inputList.forEach((input) => {
             input.addEventListener("input", () => {
                 this._checkValidInput(input);
-                console.log(typeof _disableButton);
                 this._disableButton();
             });
         });
@@ -67,4 +62,4 @@ class FormValidator {
         this._setEventListener();
     }
 }
-export { validationConfig, FormValidator};
+export {FormValidator};

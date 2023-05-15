@@ -1,4 +1,4 @@
-import {openPopup ,zoomPopup,photoPopup,altPopup} from './index.js';
+import {openPopup ,zoomPopup,altPopup ,photoPopup} from './index.js';
 
 export class Card {
     constructor(data, templateSelector) {
@@ -19,8 +19,6 @@ export class Card {
       this._cardLike = this._card.querySelector('.card__like');
       this._cardTrash = this._card.querySelector('.card__trash');
       this._setEventListeners();
-      console.log(this._link);
-      console.log(this._name);
       this._cardTitle.textContent = this._name;
       this._cardImage.src = this._link;
       this._cardImage.alt = this._name;
@@ -32,7 +30,8 @@ export class Card {
     }
   
     _deleteCard() {
-      this._card.closest('.card').remove();
+      this._card.remove();
+      this._card = null;
     }
 
     _zoomPhoto() {
