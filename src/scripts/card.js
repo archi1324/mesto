@@ -1,10 +1,9 @@
-import {openPopup ,zoomPopup,altPopup ,photoPopup} from '../pages/index.js';
-
 export class Card {
-    constructor(data, templateSelector) {
-      this._name = data.name;
-      this._link = data.link;
+    constructor({card, cardClick},templateSelector) {
       this._templateSelector = templateSelector;
+      this._name = card.name;
+      this._link = card.link;
+      this.cardClick = cardClick;
     }
   
     _getTemplate() {
@@ -21,7 +20,7 @@ export class Card {
       this._setEventListeners();
       this._cardTitle.textContent = this._name;
       this._cardImage.src = this._link;
-      this._cardImage.alt = this._name;
+      this._cardImage.alt = this._name;  
       return this._card;
     }
   
@@ -34,16 +33,13 @@ export class Card {
       this._card = null;
     }
 
-    _zoomPhoto() {
-        openPopup(zoomPopup);
-        altPopup.textContent = this._name;
-        photoPopup.alt = this._name;
-        photoPopup.src = this._link;
-      };
+
 
     _setEventListeners() {
       this._cardLike.addEventListener('click',() => this._likeCard());
       this._cardTrash.addEventListener('click',() => this._deleteCard());
-      this._cardImage.addEventListener('click', () => this._zoomPhoto());
+      this._cardImage.addEventListener('click', () => {
+        console.log(this);
+      this.cardClick(this._name, this._link)});
     }
   }

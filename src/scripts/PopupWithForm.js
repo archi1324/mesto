@@ -7,7 +7,6 @@ class PopupWithForm extends Popup {
         this._form = this._popup.querySelector('.form');
         this._input = Array.from(this._form.querySelectorAll('.popup__input'));
         
-        this._submitButtonElement = this._popup.querySelector('.popup__button');
     }
 
     closePopup() {
@@ -26,9 +25,9 @@ class PopupWithForm extends Popup {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._submitButtonElement(this._getInputValue());
+            {this._formSubmit(evt, this._getInputValue());
             this.closePopup();
-        });
+        }});
     }
 }
 

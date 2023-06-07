@@ -32,7 +32,7 @@ class FormValidator {
         });
     }
 
-    disableButton = () => {
+    _disableButton = () => {
         if (this._checkInvalidInput()) {
             this._buttonElement.classList.add(this.config.inactiveButtonClass);
             this._buttonElement.disabled = true;
