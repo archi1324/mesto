@@ -5,7 +5,7 @@ import {Section} from '../components/Section.js';
 import {UserInfo} from '../components/UserInfo.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {PopupWithImage} from '../components/PopupWithImage.js';
-import './index.css';
+// import './index.css';
 
 const profilePopupOpenButton = document.querySelector('.profile__edit-button');
 const addPopupOpenButton = document.querySelector('.profile__add-button');
