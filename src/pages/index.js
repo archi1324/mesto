@@ -5,20 +5,22 @@ import {Section} from '../components/Section.js';
 import {UserInfo} from '../components/UserInfo.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
 import {PopupWithImage} from '../components/PopupWithImage.js';
-// import './index.css';
+import './index.css';
 
 const profilePopupOpenButton = document.querySelector('.profile__edit-button');
 const addPopupOpenButton = document.querySelector('.profile__add-button');
 const cardsContainerSelector = '.elements';
 const popupField = document.querySelector('.popup__field');
 const popupSubtitle = document.querySelector('.popup__subtitle');
+const popupFieldAdd = document.querySelector('.popup__field-add');
+const popupSubtitleAdd = document.querySelector('.popup__subtitle-add');
 const formEditProfile = document.querySelector('.form');
 export const cardTemplate = document.querySelector('.card__template').content.querySelector('.card');
 const formElementCard = document.querySelector('.popup__form-add');
 export const zoomPopup = document.querySelector('.popup_zoom');
 export const photoPopup = document.querySelector('.popup__photo-zoom');
 export const altPopup = document.querySelector('.popup__title-zoom');
-
+const saveButton = document.querySelector('.popup__submit')
 
 // validation
 const profileValidation = new FormValidator(validationConfig, formEditProfile);
@@ -27,32 +29,32 @@ cardValidation.enableValidation();
 profileValidation.enableValidation();
 
 //popupProfile
-const profilePopup = new PopupWithForm(
-  (data) => {
+const profilePopup = new PopupWithForm({
+  formSubmit: (evt, data) => {
     evt.preventDefault();
+    console.log(data);
     userInfo.setUserInfo(data);
-    console.log(userInfo);
     profilePopup.closePopup();
-  },'.popup_edit' 
+}},'.popup_edit' 
 );
 profilePopup.setEventListeners();
 
 profilePopupOpenButton.addEventListener('click', ()  =>{
   profilePopup.openPopup();
-  const {profileName: title, profileDescription: description} = userInfo.getUserInfo();
-  popupField.value = title;
-  popupSubtitle.value = description;
+  const userData = userInfo.getUserInfo();
+  popupField.value = userData.name;
+  popupSubtitle.value = userData.description;
   profileValidation.resetValidation();
 });
 
 // popupAdd
-const addCardPopup = new PopupWithForm( 
-(evt, data) => {
+const addCardPopup = new PopupWithForm({ 
+  formSubmit: (evt, data) => {
   evt.preventDefault();
+  console.log(data);
   const newCard = createCard(data);
   console.log(newCard);
-  section.addItem(newCard); 
-  addCardPopup.closePopup();
+  section.addItem(newCard);} 
 },'.popup_add'
 );
 

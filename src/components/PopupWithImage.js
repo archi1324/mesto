@@ -1,4 +1,4 @@
-import { Popup } from './popup.js';
+import { Popup } from './Popup.js';
 
 export class PopupWithImage extends Popup {
     constructor(popupSelector) {
@@ -8,7 +8,6 @@ export class PopupWithImage extends Popup {
     }
 
     openZoom = (name ,link) => {
- 
         this._zoomPhoto.src = link;
         this._zoomPhoto.alt = name;
         this._zoomTitle.textContent = name;

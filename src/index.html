@@ -9,12 +9,12 @@
   <body class="page">
      <div class="page__container">
       <section class="header">
-        <img src="./images/logo.svg" alt="Логотип Место Россия" class="header__logo"/>
+        <img src="<%=require('./images/logo.svg')%>" alt="Логотип Место Россия" class="header__logo"/>
       </section>
       <main class="main">
         <section class="profile">
           <div class="profile__info">
-            <img src="./images/image.svg" alt="Фото профиля" class="profile__avatar">
+            <img src="<%=require('./images/image.svg')%>" alt="Фото профиля" class="profile__avatar">
             <h1  class="profile__name">Жак-Ив Кусто</h1>
             <p class="profile__description">Исследователь океана</p>
             <button class="profile__edit-button" type="button"></button>
@@ -44,11 +44,11 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form name="form" class="form" novalidate>
           
-          <input type="text" id="name__input" name="popup-title" class="popup__input  popup__field" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input type="text" id="name__input" name="name" class="popup__input  popup__field" placeholder="Имя" minlength="2" maxlength="40" required>
           <div class="popup__span-container">
           <span id="name__input-error" class="popup__input-error"></span>
           </div>
-          <input id="name__input_description" type="text" name="popup-subtitle" class="popup__input  popup__subtitle" placeholder="Профессия" minlength="2" maxlength="200" required>
+          <input id="name__input_description" type="text" name="description" class="popup__input  popup__subtitle" placeholder="Профессия" minlength="2" maxlength="200" required>
           <div class="popup__span-container">
           <span id="name__input_description-error" class="popup__input-error"></span>
           </div>
@@ -62,11 +62,11 @@
         <h2 class="popup__title">Новое Место</h2>
         <form name="form__add" class="form popup__form-add" novalidate>
           
-          <input id="name__input_card" type="text" name="popup__field_add" class="popup__input popup__field popup__field-add" placeholder="Название" minlength="2" maxlength="30" required>
+          <input id="name__input_card" type="text" name="name" class="popup__input popup__field popup__field-add" placeholder="Название" minlength="2" maxlength="30" required>
           <div class="popup__span-container">
           <span id="name__input_card-error" class="popup__input-error"></span>
           </div>
-          <input id="name__input_url" type="url" name="popup__subtitle_add" class="popup__input popup__subtitle popup__subtitle-add" placeholder='Ссылка' required>
+          <input id="name__input_url" type="url" name="link" class="popup__input popup__subtitle popup__subtitle-add" placeholder='Ссылка' required>
           <div class="popup__span-container">
           <span id="name__input_url-error" class="popup__input-error"></span>
           </div>
