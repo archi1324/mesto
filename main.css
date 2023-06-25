@@ -43,6 +43,6 @@
 .popup__span-container{min-height:37px}
 .card__like-counter{color:#000;font-size:13px;font-weight:400;line-height:16px;margin:0;padding:0;text-align:center}
 .card__trash_disabled{display:none}
-.profile__avatar{border-radius:50%;box-sizing:border-box;grid-area:avatar;margin:0 30px 0 0;-o-object-fit:contain;object-fit:contain;-o-object-position:center;object-position:center;overflow:hidden;padding:0;width:120px}.profile__avatar:hover{background-color:rgba(0,0,0,.8);opacity:1}@media only screen and (max-width:767px){.profile__avatar{justify-self:center;margin:0 0 22px}}
+.profile__avatar{border-radius:50%;box-sizing:border-box;grid-area:avatar;margin:0 30px 0 0;-o-object-fit:contain;object-fit:contain;-o-object-position:center;object-position:center;overflow:hidden;padding:0;width:120px}@media only screen and (max-width:767px){.profile__avatar{justify-self:center;margin:0 0 22px}}
 .profile__avatar-button{background-position:50%;background-repeat:no-repeat;border:0;border-radius:50%;cursor:pointer;height:120px;left:0;margin:0;opacity:0;padding:0;position:absolute;top:164px;width:120px;z-index:1}.profile__avatar-button:hover{background-color:rgba(0,0,0,.8);opacity:1}
 
