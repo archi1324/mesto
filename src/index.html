@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mesto</title>
-   <link rel="stylesheet" href="./pages/index.css"/>
   </head>
   <body class="page">
      <div class="page__container">
@@ -14,24 +13,17 @@
       <main class="main">
         <section class="profile">
           <div class="profile__info">
+            <div class="profile__avatar_change"> 
             <img src="<%=require('./images/image.svg')%>" alt="Фото профиля" class="profile__avatar">
+            <button class="profile__avatar_change-button"></button>
+            </div> 
             <h1  class="profile__name">Жак-Ив Кусто</h1>
             <p class="profile__description">Исследователь океана</p>
             <button class="profile__edit-button" type="button"></button>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
-         <section class="elements">
-          <template class="card__template" id="card-template">
-          <div class="card">
-            <img src="#"  alt="#" class="card__image">
-            <div class ="card__info">
-              <h2 class="card__title"></h2>
-              <button type=button class="card__like"></button>
-            </div>
-            <button type=button class="card__trash"></button>
-          </div>
-          </template>
+        <section class="elements">
         </section>
       </main>
       <footer class="footer">
@@ -48,7 +40,7 @@
           <div class="popup__span-container">
           <span id="name__input-error" class="popup__input-error"></span>
           </div>
-          <input id="name__input_description" type="text" name="description" class="popup__input  popup__subtitle" placeholder="Профессия" minlength="2" maxlength="200" required>
+          <input id="name__input_description" type="text" name="about" class="popup__input  popup__subtitle" placeholder="Профессия" minlength="2" maxlength="200" required>
           <div class="popup__span-container">
           <span id="name__input_description-error" class="popup__input-error"></span>
           </div>
@@ -81,6 +73,42 @@
           <h2 class="popup__title-zoom"></h2>
         </div>
     </div>
+
+    <div class="popup popup__avatar">
+      <div class="popup__container">
+        <button type="button" class="popup__exit popup__exit-avatar"></button>
+        <form class="form popup__form-avatar" name="avatar-form" novalidate>
+          <h3 class="popup__title">Обновить аватар</h3>
+          <input class="popup__input popup__input-avatar" id="avatar__input_url" type="url" name="link" minlength="2" placeholder="Ссылка на аватар" required>
+          <div class="popup__span-container">
+            <span id="avatar__input_url-error" class="popup__input-error"></span>
+            </div>
+          <button class="popup__submit" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_card_delete" id="popup_card_delete">
+      <div class="popup__container">
+        <button type="button" class="popup__exit popup__exit-avatar"></button>
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button class="popup__submit popup__submit_delete" type="submit">Да</button>
+      </div>
+    </div>
+    
+    <template class="card__template" id="card-template">
+      <div class="card">
+        <img src="#"  alt="#" class="card__image">
+        <div class ="card__info">
+          <h2 class="card__title"></h2>
+          <div>
+          <button type=button class="card__like"></button>
+          <p class="card__like-counter">0</p>
+          </div>
+        </div>
+        <button type=button class="card__trash card__trash_disabled"></button>
+      </div>
+      </template>
    <script type="module" src="./pages/index.js" defer></script>
   </body>
 </html>

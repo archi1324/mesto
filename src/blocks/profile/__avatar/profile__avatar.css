@@ -4,7 +4,9 @@
   margin: 0 30px 0 0;
   object-fit: contain;
   object-position: center;
-  max-width: 120px;
+  width: 120px;
+  overflow: hidden;
+  box-sizing: border-box;
   grid-area: avatar;
 }
 

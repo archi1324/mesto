@@ -33,3 +33,11 @@ export  const validationConfig = {
     inputErrorClass: 'popup__input_error',
     errorClass: 'popup__input_error-visible'
 };
+
+export const apiConfig = {
+  url: 'https://mesto.nomoreparties.co/v1/cohort-69',
+  headers: {
+    authorization: '23266549-2b8e-435e-8d29-ff2e83b725ec',
+    'content-type': 'application/json'
+  },
+};
