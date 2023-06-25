@@ -22,7 +22,7 @@ export const photoPopup = document.querySelector('.popup__photo-zoom');
 export const altPopup = document.querySelector('.popup__title-zoom');
 const saveButton = document.querySelector('.popup__submit');
 const formAvatarElement = document.querySelector('.popup__form-avatar');
-const avatarChangeButton = document.querySelector('.profile__avatar_change-button')
+const avatarChangeButton = document.querySelector('.profile__avatar-button');
 
 const api = new Api(apiConfig);
 let userId;
@@ -135,7 +135,7 @@ userForm.setAvatarLink(data.link);
   avatarPopup.closePopup();
 })
      .catch((err) => console.log(err))
-     .finally(() => submitStatus());
+     .finally(() => saveButton.textContent = 'Сохранение...');
   },
   },
 '.popup_avatar'
