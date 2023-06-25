@@ -39,7 +39,7 @@ avatarCardValidator.enableValidation();
 const userForm = new UserInfo({
   selectorName: '.profile__name',
   selectorAbout: '.profile__description',
-  selectorAvatar: '.profile__avatar'});
+  selectorAvatar: '.profile__avatar-icon'});
 
 // section
 const section = new Section ({

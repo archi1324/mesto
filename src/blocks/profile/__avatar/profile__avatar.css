@@ -1,18 +1,18 @@
-.profile__avatar {
-  border-radius: 50%;
-  padding: 0;
-  margin: 0 30px 0 0;
-  object-fit: contain;
-  object-position: center;
-  width: 120px;
-  overflow: hidden;
-  box-sizing: border-box;
-  grid-area: avatar;
+.profile__change{
+    position: relative;
+    max-width: 120px;
+    grid-area: avatar;
 }
 
-@media only screen and (max-width: 767px) {
-  .profile__avatar {
-    justify-self: center;
-    margin: 0 0 22px 0;
+@media screen and (max-width:980px) {
+    .profile__avatar_change {
+      max-width: 100px;
+    }
   }
-}
+
+  @media screen and (max-width:641px) {
+    .profile__avatar_change {
+      max-width: 120px;
+      align-self: center;
+    }
+  }
