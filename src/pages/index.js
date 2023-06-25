@@ -138,7 +138,7 @@ userForm.setAvatarLink(data.link);
      .finally(() => submitStatus());
   },
   },
-'.popup__avatar'
+'.popup_avatar'
 );
 
  avatarPopup.setEventListeners();
