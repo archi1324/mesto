@@ -16,11 +16,11 @@
 
  
 
-@media only screen and (max-width: 767px) { 
-  .profile__name { 
-    align-self: unset; 
-    margin: 6px 0px 0px 27px; 
-    font-size: 27px; 
-    line-height: 33px; 
+@media only screen and (max-width: 767px) {
+  .profile__name {
+    align-self: unset;
+    margin: 6px 0px 0px 27px;
+    font-size: 27px;
+    line-height: 33px;
   } 
 } 
