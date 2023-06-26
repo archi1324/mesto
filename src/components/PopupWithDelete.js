@@ -4,8 +4,6 @@ export class PopupWithDelete extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
     this._deleteButton = document.querySelector('.popup__submit_delete');
-    this._buttonSubmitDefaultTitle = this._deleteButton.textContent;
-    this._buttonSubmitAwaitingText = 'Удаление...';
   }
   
   open(evt) {
@@ -16,12 +14,5 @@ export class PopupWithDelete extends Popup {
 
   close() {
     super.closePopup()
-  }
-
-  submitStatus(isLoading){
-    if(!isLoading){
-    this._deleteButton.textContent=this._buttonSubmitDefaultTitle;}
-    else{
-    this._deleteButton.textContent = this._buttonSubmitAwaitingText;}
   }
 }

@@ -12,17 +12,16 @@ import { Api } from '../components/Api.js';
 const profilePopupOpenButton = document.querySelector('.profile__edit-button');
 const addPopupOpenButton = document.querySelector('.profile__add-button');
 const cardsContainerSelector = '.elements';
-const popupField = document.querySelector('.popup__field');
-const popupSubtitle = document.querySelector('.popup__subtitle');
-const formEditProfile = document.querySelector('.form');
+const popupEditTitle = document.querySelector('.popup__field');
+const popupEditSubtitle = document.querySelector('.popup__subtitle');
 export const cardTemplate = document.querySelector('.card__template').content.querySelector('.card');
 const formElementCard = document.querySelector('.popup__form-add');
 export const zoomPopup = document.querySelector('.popup_zoom');
 export const photoPopup = document.querySelector('.popup__photo-zoom');
-export const altPopup = document.querySelector('.popup__title-zoom');
-const saveButton = document.querySelector('.popup__submit');
+export const titlePopupZoom = document.querySelector('.popup__title-zoom');
 const formAvatarElement = document.querySelector('.popup__form-avatar');
 const avatarChangeButton = document.querySelector('.profile__avatar-button');
+const formEditProfile = document.querySelector('.popup__form-edit');
 
 const api = new Api(apiConfig);
 let userId;
@@ -52,16 +51,10 @@ cardsContainerSelector
 
 // userInfo
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-  .then((res) => {
-    const dataUser = res[0];
-    const init = res[1];
+  .then(([dataUser,init]) => {
     userId = dataUser._id;
-    userForm.setUserInfo({
-      name: dataUser.name,
-      about: dataUser.about,
-      avatar: dataUser.avatar
-    });
-      section.renderItems(init);
+    userForm.setUserInfo(dataUser);
+    section.renderItems(init);
     })
   .catch((err) => {console.log(err)});
 
@@ -69,16 +62,16 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 //popupProfile
 const profilePopup = new PopupWithForm({
   formSubmit: (evt ,data) => {
+    profilePopup.renderLoading(true);
     evt.preventDefault();
      api.editUserInfo(data)
   .then((res) => {
     userForm.setUserInfo(res);
-    console.log(res);
+    profilePopup.close()
   })
-  .then(() => profilePopup.close())
   .catch((err) => {console.log(err)})
   .finally(() => {
-    saveButton.textContent = 'Сохранение...';
+    profilePopup.renderLoading(false);
   })
 },
 },'.popup_edit' 
@@ -88,14 +81,15 @@ profilePopup.setEventListeners();
 profilePopupOpenButton.addEventListener('click', ()  =>{
   profilePopup.openPopup();
   const userData = userForm.getUserInfo();
-  popupField.value = userData.name;
-  popupSubtitle.value = userData.about;
+  popupEditTitle.value = userData.name;
+  popupEditSubtitle.value = userData.about;
   profileValidation.resetValidation();
 });
 
 // popupAdd
 const addCardPopup = new PopupWithForm({ 
   formSubmit: (evt ,data) => {
+    addCardPopup.renderLoading(true);
     evt.preventDefault();
     api.addNewCard({
       name: data.name,
@@ -110,10 +104,11 @@ const addCardPopup = new PopupWithForm({
         owner: {_id: userId}
       })
       );
+      addCardPopup.closePopup()
     })
-    .then(() => addCardPopup.closePopup())
     .catch((err) => {console.log(err)})
-    .finally(() => saveButton.textContent = 'Cохранение...');
+    .finally(() => {addCardPopup.renderLoading(false);
+    });
     },
   },'.popup_add'
 );
@@ -128,14 +123,15 @@ addPopupOpenButton.addEventListener('click', () => {
 //Avatar popup
 const avatarPopup = new PopupWithForm({
 formSubmit: (evt,data) => {
+  avatarPopup.renderLoading(true);
   evt.preventDefault();
 api.changeAvatar({avatar: data.link})
 .then(() => {
-userForm.setAvatarLink(data.link);
+  userForm.setAvatarLink(data.link);
   avatarPopup.closePopup();
 })
      .catch((err) => console.log(err))
-     .finally(() => saveButton.textContent = 'Сохранение...');
+   .finally(() => {avatarPopup.renderLoading(false);});
   },
   },
 '.popup_avatar'

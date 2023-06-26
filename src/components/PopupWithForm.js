@@ -6,12 +6,21 @@ class PopupWithForm extends Popup {
         this._formSubmit = formSubmit;
         this._form = this._popup.querySelector('.form');
         this._input = Array.from(this._form.querySelectorAll('.popup__input'));
-        this._submitButton = this._popup.querySelector('.popup__save');
+        this._submitButton = this._popup.querySelector('.popup__submit');
+        this._submitText = this._submitButton.textContent;
     }
 
     closePopup() {
         super.closePopup();
         this._form.reset();
+    }
+
+    renderLoading(isLoading, loadingText='Сохранение...') {
+        if (isLoading) {
+            this._submitButton.textContent = loadingText;
+        } else {
+            this._submitButton.textContent = this._submitText;
+        }
     }
 
     openPopup(){

@@ -19,7 +19,6 @@ export class UserInfo {
     }
     
     setAvatarLink(link) {
-        console.log(link);
         this._profileAvatar.src = link;
       }
 }
