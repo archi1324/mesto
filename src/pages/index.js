@@ -67,7 +67,7 @@ const profilePopup = new PopupWithForm({
      api.editUserInfo(data)
   .then((res) => {
     userForm.setUserInfo(res);
-    profilePopup.close()
+    profilePopup.closePopup()
   })
   .catch((err) => {console.log(err)})
   .finally(() => {
